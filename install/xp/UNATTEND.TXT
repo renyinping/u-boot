@@ -1,0 +1,42 @@
+;SetupMgrTag
+[Data]
+    AutoPartition=0
+    MsDosInitiated="0"
+    UnattendedInstall="Yes"
+
+[Unattended]
+    DriverSigningPolicy=Ignore
+    UnattendMode=FullUnattended
+    OemSkipEula=Yes
+    OemPreinstall=Yes
+    TargetPath=\WINDOWS
+    oemPnPDriversPath="Drivers;"
+
+[GuiUnattended]
+    AdminPassword=*
+    EncryptedAdminPassword=NO
+    OEMSkipRegional=1
+    TimeZone=210
+    OemSkipWelcome=1
+
+[UserData]
+    ProductKey=MRX3F-47B9T-2487J-KWKMF-RPWBY
+    FullName="Microsoft"
+    OrgName="Microsoft"
+    ComputerName=*
+
+[TapiLocation]
+    CountryCode=86
+    Dialing=Tone
+    AreaCode=0
+    LongDistanceAccess="0"
+
+[RegionalSettings]
+    LanguageGroup=10
+
+[Identification]
+    JoinWorkgroup=WORKGROUP
+
+[Networking]
+    InstallDefaultComponents=Yes
+

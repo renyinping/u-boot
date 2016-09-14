@@ -1,0 +1,73 @@
+# This is a sample menu.lst file. You should make some changes to it.
+# The old install method of booting via the stage-files has been removed.
+# Please install GRLDR boot strap code to MBR with the bootlace.com
+# utility under DOS/Win9x or Linux.
+#
+# It must be UTF-8 encoding for multi-lingual support. Font lines can be
+# appended to the file. The font lines should be in the unifont.hex format.
+
+color blue/green yellow/red white/magenta white/magenta
+timeout 30
+## menu border color
+color border=0xEEFFEE
+## set vbe mode
+graphicsmode -1 640:800 480:600 24:32 || graphicsmode -1 -1 -1 24:32
+## loading splashimage
+splashimage /boot/grub/splashimage.xpm || splashimage /boot/grub/splashimage.bmp
+default /default
+## Menu AutoNumber
+write 0x8274 0x2001
+
+title ubuntu-15.10-desktop-i386.iso
+set BOOT_NANE=ubuntu-15.10-desktop-i386
+find --set-root --ignore-floppies --ignore-cd /sources/ubuntu/%BOOT_NAME%.iso
+kernel /sources/ubuntu/%BOOT_NAME%/vmlinuz boot=casper iso-scan/filename=/sources/ubuntu/%BOOT_NAME%.iso rw quiet splash locale=zh_CN.UTF-8  
+initrd /sources/ubuntu/%BOOT_NAME%/initrd.lz
+
+title ubuntu-15.10-desktop-i386.iso
+find --set-root --ignore-floppies --ignore-cd /sources/ubuntu/ubuntu-15.10-desktop-i386.iso
+kernel /sources/ubuntu/ubuntu-15.10-desktop-i386/vmlinuz boot=casper iso-scan/filename=/sources/ubuntu/ubuntu-15.10-desktop-i386.iso rw quiet splash locale=zh_CN.UTF-8  
+initrd /sources/ubuntu/ubuntu-15.10-desktop-i386/initrd.lz
+
+title ubuntu-14.04.3-desktop-i386.iso
+find --set-root --ignore-floppies --ignore-cd /sources/ubuntu/ubuntu-14.04.3-desktop-i386.iso
+kernel /sources/ubuntu/ubuntu-14.04.3-desktop-i386/vmlinuz boot=casper iso-scan/filename=/sources/ubuntu/ubuntu-14.04.3-desktop-i386.iso rw quiet splash locale=zh_CN.UTF-8  
+initrd /sources/ubuntu/ubuntu-14.04.3-desktop-i386/initrd.lz
+
+title ubuntu-12.04.5-desktop-i386.iso
+find --set-root --ignore-floppies --ignore-cd /sources/ubuntu/ubuntu-12.04.5-desktop-i386.iso
+kernel /sources/ubuntu/ubuntu-12.04.5-desktop-i386/vmlinuz boot=casper iso-scan/filename=/sources/ubuntu/ubuntu-12.04.5-desktop-i386.iso rw quiet splash locale=zh_CN.UTF-8  
+initrd /sources/ubuntu/ubuntu-12.04.5-desktop-i386/initrd.lz
+
+title ubuntu-10.04.4-desktop-i386.iso
+find --set-root --ignore-floppies --ignore-cd /sources/ubuntu/ubuntu-10.04.4-desktop-i386.iso
+kernel /sources/ubuntu/ubuntu-10.04.4-desktop-i386/vmlinuz boot=casper iso-scan/filename=/sources/ubuntu/ubuntu-10.04.4-desktop-i386.iso rw quiet splash locale=zh_CN.UTF-8  
+initrd /sources/ubuntu/ubuntu-10.04.4-desktop-i386/initrd.lz
+
+title ubuntu-8.04.4-desktop-i386.iso
+find --set-root --ignore-floppies --ignore-cd /sources/ubuntu/ubuntu-8.04.4-desktop-i386.iso
+kernel /sources/ubuntu/ubuntu-8.04.4-desktop-i386/vmlinuz boot=casper iso-scan/filename=/sources/ubuntu/ubuntu-8.04.4-desktop-i386.iso rw quiet splash locale=zh_CN.UTF-8  
+initrd /sources/ubuntu/ubuntu-8.04.4-desktop-i386/initrd.gz
+
+title /grub/menu/main.lst
+fallback +1
+find --set-root --ignore-floppies --ignore-cd /grub/menu/main.lst
+configfile /grub/menu/main.lst
+
+title commandline
+commandline
+
+title reboot (重启)
+reboot
+
+title halt (关机)
+halt
+
+# In the end, font lines for unicode chars in unifont.hex format.
+# It should include all unicode chars used in the above menu code.
+# Surely normal ASCII chars are not necessary to be included here.
+
+5173:10100810082000003FF8010001000100FFFE010002800280044008203018C006
+542F:010000801FFC1004100410041FFC10001000100017FC24042404440487FC0404
+673A:100011F011101110FD10111031103910551055109110111211121212120E1400
+91CD:001000F83F000100FFFE01001FF011101FF011101FF001003FF80100FFFE0000
